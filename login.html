@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Location Tracking System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="login.css"> <!-- Link to the external CSS -->
+</head>
+
+<body>
+
+    
+
+    <!-- Sign-in Form -->
+    <div id="signin">
+        <div class="form-title">Sign In</div>
+        <div class="input-field">
+            <input type="text" id="username" autocomplete="off" />
+            <i class="material-icons">email</i>
+        </div>
+        <div class="input-field">
+            <input type="password" id="password" />
+            <i class="material-icons">lock</i>
+        </div>
+        <a href="" class="forgot-pw">Forgot Password?</a>
+        <button class="login" onclick="authenticate()">Login</button>
+        <!-- Default Register Account link below login button -->
+        <a href="registration.html" class="register-account">Register Account</a>
+    </div>
+
+    <!-- New Register Account link for mobile view -->
+    <a href="registration.html" class="register-account-mobile">Register Account</a>
+
+    <script src="login.js"></script> <!-- Link to external JS file -->
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="update.css">
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+   <title>Responsive Registration Form</title>
+</head>
+<body>
+    <div class="container">
+        <header>Update Information</header>
+
+        <br>
+        
+        <!-- Update form action to point to save_student.php with POST method -->
+        <form action="save_student.php" method="POST">
+            <div class="form first">
+                <div class="Personal Information">
+                    <span class="title">Personal Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Last Name</label>
+                            <input type="text" name="last_name" placeholder="Enter Last Name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>First Name</label>
+                            <input type="text" name="first_name" placeholder="Enter First Name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Middle Name</label>
+                            <input type="text" name="middle_name" placeholder="Enter Middle Name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Extension</label>
+                            <input type="text" name="extension" placeholder="Enter Extension">
+                        </div>
+                        
+                        <div class="input-field">
+                            <label>Mobile No.</label>
+                            <input type="number" name="mobile_no" placeholder="Enter Mobile Number" required>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="Student Information">
+                    <span class="title">Student Information</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Student No.</label>
+                            <input type="text" name="student_no" placeholder="Enter Student No." required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="Enter Email" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Year Level</label>
+                            <select name="year_level" required>
+                              <option disabled selected>Select Year Level</option>
+                              <option>1st Year</option>
+                              <option>2nd Year</option>
+                              <option>3rd Year</option>
+                              <option>4th Year</option>
+                              <option>5th Year</option>
+                          </select>                       
+                        </div>
+
+                        <div class="input-field">
+                            <label>Section</label>
+                            <select name="section" required>
+                              <option disabled selected>Select Section</option>
+                              <option>A</option>
+                              <option>B</option>
+                              <option>C</option>
+                          </select>
+                        </div>
+
+                        <div class="input-field">
+                          <label>Program</label>
+                          <select name="program" required>
+                              <option disabled selected>Select Program</option>
+                              <option>BS in Computer Science</option>
+                              <option>BS in Information System</option>
+                              <option>BS in Nursing</option>
+                          </select>
+                      </div>
+                    </div>
+
+                    <br>
+
+                    <div class="Emergency Contact">
+                      <span class="title">Emergency Contact</span>
+  
+                      <div class="fields">
+                          <div class="input-field">
+                              <label>Full Name</label>
+                              <input type="text" name="emergency_name" placeholder="Enter Full Name" required>
+                          </div>
+  
+                          <div class="input-field">
+                              <label>Mobile No.</label>
+                              <input type="number" name="emergency_mobile" placeholder="Enter Mobile Number" required>
+                          </div>
+  
+                          <div class="input-field">
+                              <label>Email</label>
+                              <input type="email" name="emergency_email" placeholder="Enter Email" required>
+                          </div>
+                      </div>
+
+                    <button type="submit" class="updateBtn">
+                        <span class="btnText">Update</span>
+                    </button>
+                </div> 
+            </div>
+        </form>
+    </div>
+
+    <script src="update.js"></script>
+</body>
+</html>

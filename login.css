@@ -1,0 +1,179 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    background-image: url('background.svg');
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#signin {
+    width: 10%;
+    background: transparent;
+    margin: 100px 50px;
+    box-shadow: 0 0 64px rgba(0, 0, 0, 0.5);
+    padding: 100px;
+    position: absolute;
+    right: 3%;
+    overflow: hidden;
+    border-radius: 39px;
+}
+
+#signin .form-title {
+    font: 500 16px/1 'Roboto', sans-serif;
+    color: #E3E0CD;
+    text-align: center;
+    margin: 35px 0;
+}
+
+#signin .input-field {
+    position: relative;
+    height: 50px;
+    margin: 35px 0;
+}
+
+#signin .input-field i {
+    position: absolute;
+    bottom: 18px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+#signin .input-field input {
+    width: calc(100% - 70px);
+    height: 50px;
+    font: 500 16px/1 'Roboto', sans-serif;
+    padding: 0 20px 0 50px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background: transparent;
+    color: white;
+    border-radius: 0;
+    outline: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#signin .forgot-pw {
+    font: 600 12px/1 'Roboto', sans-serif;
+    color: #E3E0CD;
+    text-decoration: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#signin button.login {
+    min-height: 60px;
+    font: 500 16px/1 'Roboto', sans-serif;
+    width: 100%;
+    padding: 20px;
+    background: #CFFF5E;
+    color: #161616;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+#signin .register-account {
+    font: 600 14px/1 'Roboto', sans-serif;
+    color: #E3E0CD;
+    text-decoration: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+}
+
+/* Default view: hide the mobile version of register link */
+.register-account-mobile {
+    display: none;
+}
+
+
+
+/* Media Queries for Mobile Portrait */
+@media (max-width: 480px) {
+    .call-text {
+        display: none;
+    }
+
+    .social-media-links {
+        display: none;
+    }
+
+    #signin {
+        width: 70%;
+        margin: auto;
+        box-shadow: none;
+        right: 0;
+        left: 0;
+        padding: 50px;
+        border-radius: 0px;
+    }
+
+    #signin .forgot-pw {
+        font: 600 13px/1 'Roboto', sans-serif;
+        color: #E3E0CD;
+        text-decoration: none;
+        display: block;
+        margin: 45px auto;
+        text-align: center;
+    }
+
+    #signin button.login {
+        min-height: 50px;
+        font: 500 16px/1 'Roboto', sans-serif;
+        width: 100%;
+        padding: 20px;
+        background: #CFFF5E;
+        color: #161616;
+        border: none;
+        outline: 0;
+        cursor: pointer;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-radius: 16px;
+    }
+
+    #signin .register-account {
+        display: none; /* Hide default Register Account link */
+    }
+
+    /* Mobile-specific Register Account link */
+    .register-account-mobile {
+        display: block; /* Show mobile Register Account link */
+        font: 600 14px/1 'Roboto', sans-serif;
+        color: #E3E0CD;
+        text-decoration: none;
+        text-align: center;
+        position: fixed;
+        bottom: 20px;
+        width: 100%;
+        z-index: 10;
+    }
+}
+
+/* Media Queries for Tablets */
+@media (max-width: 768px) {
+
+}
+
+/* Media Queries for Laptops */
+@media (max-width: 1024px) {
+
+}
+
+/* Media Queries for Large Screens */
+@media (max-width: 1201px) {
+
+}

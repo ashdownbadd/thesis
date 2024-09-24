@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Location Tracking System</title>
+  <link rel="icon" href="logo-1.jpeg" type="image/x-icon">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+
+<body>
+  <div id="map-container">
+    <div id="map"></div>
+  </div>
+  <div id="container">
+    <div id="content">
+      <h1>Student Location Tracking System</h1>
+      <p>Welcome to the student location tracking system. This system allows you to track the location of students in real-time.</p>
+      <p>The map shows the current location of the students who have granted permission for location tracking.</p>
+      <div class="search">
+        <input type="text" class="input" placeholder="Start searching..."/>
+        <button class="btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <div id="results"></div> <!-- Container for search results -->
+    </div>
+  </div>
+
+  <!-- Circular Menus -->
+  <div id="circularMenu1" class="circular-menu circular-menu-left">
+    <a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">
+      <i class="fa fa-bars"></i>
+    </a>
+    <menu class="items-wrapper">
+      <a href="add.html" class="menu-item fa fa-plus"></a>
+      <a href="prgora" class="menu-item fa fa-user"></a>
+      <a href="#" class="menu-item fa fa-bell"></a>
+      <a href="login.html" class="menu-item fa fa-power-off"></a>
+    </menu>
+  </div>
+
+
+  
+  <script src="index.js"></script>
+
+  <script>
+    const search = document.querySelector(".search");
+    const btn = document.querySelector(".btn");
+    const input = document.querySelector(".input");
+
+    btn.addEventListener("click", () => {
+      search.classList.toggle("active");
+      input.focus();
+    });
+
+    function displayStudents(students) {
+      const resultsContainer = document.querySelector('#results');
+      resultsContainer.innerHTML = '';
+
+      students.forEach(student => {
+        const studentCard = document.createElement('div');
+        studentCard.className = 'student-card';
+        studentCard.textContent = `${student.first_name} ${student.middle_name} ${student.last_name}`;
+        studentCard.addEventListener('click', () => showStudentProfile(student));
+        resultsContainer.appendChild(studentCard);
+      });
+    }
+
+    function filterStudents(students, searchQuery) {
+      const filteredStudents = students.filter(student => 
+        `${student.first_name} ${student.middle_name} ${student.last_name}`.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      displayStudents(filteredStudents);
+    }
+
+    function showStudentProfile(student) {
+      const profileContainer = document.createElement('div');
+      profileContainer.className = 'profile-container';
+
+      const profileContent = `
+        <div class="profile-card">
+          <h2>${student.first_name} ${student.middle_name} ${student.last_name}</h2>
+          <p><strong>ID:</strong> ${student.student_id}</p>
+          <p><strong>Email:</strong> ${student.email}</p>
+          <p><strong>Phone:</strong> ${student.phone}</p>
+          <button class="close-btn">Close</button>
+        </div>
+      `;
+      profileContainer.innerHTML = profileContent;
+      document.body.appendChild(profileContainer);
+
+      const closeBtn = profileContainer.querySelector('.close-btn');
+      closeBtn.addEventListener('click', () => document.body.removeChild(profileContainer));
+    }
+
+    window.onload = () => {
+      fetchStudents();
+      getLocation();
+    };
+
+    function fetchStudents() {
+      fetch('fetch_students.php')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          const searchInput = document.querySelector('.input');
+          searchInput.addEventListener('input', () => filterStudents(data, searchInput.value));
+          displayStudents(data);
+        })
+        .catch(error => console.error('Error fetching students:', error));
+    }
+  </script>
+</body>
+</html>

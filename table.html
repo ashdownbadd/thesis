@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="table.css"> <!-- Your custom CSS file -->
+    <title>Student Search</title>
+
+</head>
+<body>
+
+    <h2 class="text-center">Student Search</h2>
+
+    <div class="search-container text-center">
+        <input type="text" id="searchInput" placeholder="Search for students..." class="form-control" style="display: inline-block; width: 300px;">
+        <button id="searchButton" class="btn btn-primary">Search</button>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="studentTable">
+                        <thead>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Full Name</th>
+                                <th>Section</th>
+                                <th>Year Level</th>
+                                <th>Program</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Student data will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div><!--end of .table-responsive-->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Load all students on page load
+            loadStudents();
+
+            $('#searchButton').click(function() {
+                var searchQuery = $('#searchInput').val();
+                $.ajax({
+                    url: 'fetch_students.php',
+                    type: 'POST',
+                    data: {query: searchQuery},
+                    success: function(data) {
+                        $('#tableBody').html(data);
+                    }
+                });
+            });
+        });
+
+        function loadStudents() {
+            $.ajax({
+                url: 'fetch_students.php', // Your PHP file to fetch all student data
+                type: 'POST',
+                data: {query: ''}, // Empty query to get all students
+                success: function(data) {
+                    $('#tableBody').html(data);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
