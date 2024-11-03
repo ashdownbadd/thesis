@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Example</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        .button-container {
+            position: relative;
+            width: 400px; /* Increased width of the container */
+            height: 400px; /* Increased height of the container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hexagon-button {
+            position: absolute;
+            width: 110px; /* Increased button width */
+            height: 120px; /* Height calculated as width / 2 * sqrt(3) */
+            text-align: center;
+            line-height: 120px; /* Match the height of the button */
+            font-size: 24px; /* Increased font size */
+            cursor: pointer;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            transition: background-color 0.3s;
+            border: none;
+        }
+
+         /* Adjust icon size */
+         .hexagon-button i {
+            font-size: 30px; /* Set desired icon size */
+        }
+
+        /* Hexagon button colors */
+        .hexagon-button:nth-child(1) {
+            background-color: #1E1915; /* Dark color */
+            color: #6D4AD0; /* Gold */
+        }
+        .hexagon-button:nth-child(2) {
+            background-color: #1E1915; /* Dark color */
+            color: #28A745; /* Silver */
+        }
+        .hexagon-button:nth-child(3) {
+            background-color: #1E1915; /* Dark color */
+            color: #CFFF5E; /* OrangeRed */
+        }
+        .hexagon-button:nth-child(4) {
+            background-color: #1E1915; /* Dark color */
+            color: #FF6F00; /* SteelBlue */
+        }
+        .hexagon-button:nth-child(5) {
+            background-color: #1E1915; /* Dark color */
+            color: #FF4D4D; /* LimeGreen */
+        }
+        .hexagon-button:nth-child(6) {
+            background-color: #1E1915; /* Dark color */
+            color: #FFB300; /* BlueViolet */
+        }
+
+        .hexagon-button:hover {
+            opacity: 0.8; /* Slightly change opacity on hover */
+        }
+
+        .hexagon-button:nth-child(1) { transform: rotate(0deg) translate(160px) rotate(0deg); }
+        .hexagon-button:nth-child(2) { transform: rotate(60deg) translate(160px) rotate(-60deg); }
+        .hexagon-button:nth-child(3) { transform: rotate(120deg) translate(160px) rotate(-120deg); }
+        .hexagon-button:nth-child(4) { transform: rotate(180deg) translate(160px) rotate(-180deg); }
+        .hexagon-button:nth-child(5) { transform: rotate(240deg) translate(160px) rotate(-240deg); }
+        .hexagon-button:nth-child(6) { transform: rotate(300deg) translate(160px) rotate(-300deg); }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button class="hexagon-button"><i class="fas fa-shield-alt"></i></button>
+        <button class="hexagon-button"><i class="fas fa-map-marker"></i></button>
+        <button class="hexagon-button"><i class="fas fa-bolt"></i></button>
+        <button class="hexagon-button"><i class="fas fa-fire"></i></button>
+        <button class="hexagon-button"><i class="fas fa-heartbeat"></i></button>
+        <button class="hexagon-button"><i class="fas fa-hand-rock"></i></button>
+    </div>
+</body>
+</html>
